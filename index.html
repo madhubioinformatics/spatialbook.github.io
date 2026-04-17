@@ -4,129 +4,129 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spatial Transcriptomics Data Analysis — Saddala & Sharma</title>
-<meta name="description" content="200-page open-access textbook on spatial transcriptomics. Python, R, AI workflows for Visium, Xenium, MERFISH. By Dr. Madhu Sudhana Saddala & Preeti Sharma.">
-<meta property="og:title" content="Spatial Transcriptomics Data Analysis">
-<meta property="og:description" content="200-page textbook — Python, R, AI, Visium, Xenium, MERFISH. Free PDF download.">
-<meta property="og:type" content="book">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="description" content="200-page textbook on spatial transcriptomics. Python, R, AI workflows for Visium, Xenium, MERFISH. By Dr. Madhu Sudhana Saddala & Preeti Sharma.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:#080d16;color:#dde4f0;font-family:'Inter',system-ui,sans-serif;line-height:1.65}
 
-/* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 40px;height:58px;
-  background:rgba(8,13,22,0.88);backdrop-filter:blur(14px);
+  background:rgba(8,13,22,0.92);backdrop-filter:blur(14px);
   border-bottom:1px solid rgba(255,255,255,0.06)}
-.nav-logo{font-family:'JetBrains Mono',monospace;font-size:13px;
-  color:#38bdf8;letter-spacing:0.05em}
+.nav-logo{font-family:'JetBrains Mono',monospace;font-size:13px;color:#38bdf8;letter-spacing:0.05em}
 .nav-links{display:flex;gap:8px}
-.nav-links a{padding:7px 14px;border-radius:6px;font-size:13px;
-  color:#94a3b8;text-decoration:none;transition:all .18s}
+.nav-links a{padding:7px 14px;border-radius:6px;font-size:13px;color:#94a3b8;text-decoration:none;transition:all .18s}
 .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.07)}
-.nav-cta{background:linear-gradient(135deg,#0ea5e9,#6366f1)!important;
-  color:#fff!important;font-weight:500}
+.nav-cta{background:linear-gradient(135deg,#f59e0b,#ef4444)!important;color:#fff!important;font-weight:600}
+.nav-preview{background:rgba(56,189,248,0.15)!important;color:#38bdf8!important;border:1px solid rgba(56,189,248,0.3)!important}
 
-/* ── HERO ── */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;
   text-align:center;padding:100px 24px 60px;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;pointer-events:none;
   background:
     radial-gradient(ellipse 70% 50% at 50% 0%,rgba(14,165,233,0.09) 0%,transparent 60%),
-    radial-gradient(ellipse 50% 40% at 20% 80%,rgba(99,102,241,0.07) 0%,transparent 60%),
-    radial-gradient(ellipse 40% 30% at 80% 60%,rgba(52,211,153,0.05) 0%,transparent 60%)}
+    radial-gradient(ellipse 50% 40% at 20% 80%,rgba(99,102,241,0.07) 0%,transparent 60%)}
 .hero-grid{position:absolute;inset:0;
-  background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);
+  background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);
   background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%)}
 .hero-inner{position:relative;max-width:860px;margin:0 auto}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;
-  border:1px solid rgba(56,189,248,0.3);border-radius:20px;
+  border:1px solid rgba(245,158,11,0.4);border-radius:20px;
   padding:5px 16px;margin-bottom:28px;
   font-family:'JetBrains Mono',monospace;font-size:12px;
-  color:#38bdf8;letter-spacing:0.08em;text-transform:uppercase}
-.eyebrow-dot{width:6px;height:6px;border-radius:50%;
-  background:#38bdf8;animation:pulse 2s infinite}
+  color:#f59e0b;letter-spacing:0.08em;text-transform:uppercase}
+.eyebrow-dot{width:6px;height:6px;border-radius:50%;background:#f59e0b;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
-h1{font-family:'Playfair Display',serif;
-  font-size:clamp(36px,7vw,72px);font-weight:900;
+h1{font-family:'Playfair Display',serif;font-size:clamp(36px,7vw,72px);font-weight:900;
   line-height:1.1;color:#fff;margin-bottom:20px;letter-spacing:-0.02em}
-h1 em{font-style:normal;
-  background:linear-gradient(135deg,#38bdf8,#818cf8,#34d399);
+h1 em{font-style:normal;background:linear-gradient(135deg,#38bdf8,#818cf8,#34d399);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.authors{font-size:17px;color:#94a3b8;margin-bottom:36px;letter-spacing:0.01em}
-.authors strong{color:#cbd5e1}
-.hero-desc{font-size:17px;color:#64748b;max-width:580px;
-  margin:0 auto 44px;line-height:1.7}
-.btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;
-  padding:15px 32px;border-radius:10px;font-size:15px;font-weight:600;
-  background:linear-gradient(135deg,#0ea5e9,#6366f1);
-  color:#fff;text-decoration:none;transition:opacity .18s,transform .18s;
-  box-shadow:0 4px 24px rgba(14,165,233,0.3)}
-.btn-primary:hover{opacity:0.9;transform:translateY(-1px)}
-.btn-secondary{display:inline-flex;align-items:center;gap:8px;
-  padding:15px 32px;border-radius:10px;font-size:15px;font-weight:500;
-  border:1.5px solid rgba(255,255,255,0.12);
-  color:#cbd5e1;text-decoration:none;transition:all .18s}
-.btn-secondary:hover{border-color:rgba(255,255,255,0.25);color:#fff;background:rgba(255,255,255,0.04)}
+.authors-line{font-size:17px;color:#94a3b8;margin-bottom:36px}
+.authors-line strong{color:#cbd5e1}
+.hero-desc{font-size:17px;color:#64748b;max-width:580px;margin:0 auto 44px;line-height:1.7}
 
-/* ── STATS ── */
+/* ── TWO BUTTON ROW ── */
+.btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.btn-amazon{display:inline-flex;align-items:center;gap:10px;
+  padding:17px 36px;border-radius:10px;font-size:16px;font-weight:700;
+  background:linear-gradient(135deg,#f59e0b,#ef4444);
+  color:#fff;text-decoration:none;transition:all .2s;
+  box-shadow:0 4px 28px rgba(245,158,11,0.35)}
+.btn-amazon:hover{transform:translateY(-2px);box-shadow:0 8px 36px rgba(245,158,11,0.45)}
+.btn-preview{display:inline-flex;align-items:center;gap:10px;
+  padding:17px 36px;border-radius:10px;font-size:16px;font-weight:600;
+  border:1.5px solid rgba(56,189,248,0.35);
+  color:#38bdf8;text-decoration:none;transition:all .2s}
+.btn-preview:hover{border-color:#38bdf8;background:rgba(56,189,248,0.07);transform:translateY(-1px)}
+
+.preview-note{font-size:13px;color:#475569;margin-bottom:44px;font-family:'JetBrains Mono',monospace}
+.preview-note span{color:#38bdf8}
+
 .stats{display:flex;justify-content:center;gap:0;
   border:1px solid rgba(255,255,255,0.07);border-radius:14px;
-  background:rgba(255,255,255,0.025);backdrop-filter:blur(8px);
-  max-width:680px;margin:0 auto;overflow:hidden}
-.stat{flex:1;padding:22px 16px;text-align:center;
-  border-right:1px solid rgba(255,255,255,0.06)}
+  background:rgba(255,255,255,0.025);max-width:680px;margin:0 auto;overflow:hidden}
+.stat{flex:1;padding:22px 16px;text-align:center;border-right:1px solid rgba(255,255,255,0.06)}
 .stat:last-child{border-right:none}
-.stat-n{font-family:'Playfair Display',serif;font-size:34px;
-  font-weight:700;color:#fff;line-height:1;margin-bottom:5px}
+.stat-n{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:#fff;line-height:1;margin-bottom:5px}
 .stat-l{font-size:11px;color:#475569;letter-spacing:0.1em;text-transform:uppercase}
 
-/* ── SECTION COMMON ── */
-section{padding:90px 24px}
+/* ── PREVIEW SECTION ── */
+.preview-section{background:rgba(56,189,248,0.04);border-top:1px solid rgba(56,189,248,0.1);
+  border-bottom:1px solid rgba(56,189,248,0.1);padding:70px 24px}
 .section-inner{max-width:1040px;margin:0 auto}
 .section-tag{font-family:'JetBrains Mono',monospace;font-size:11px;
   color:#38bdf8;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px}
 h2{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,40px);
   font-weight:700;color:#fff;margin-bottom:18px;line-height:1.2}
-.section-lead{font-size:17px;color:#64748b;max-width:560px;line-height:1.7}
+.preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
+@media(max-width:640px){.preview-grid{grid-template-columns:1fr}}
+.preview-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);
+  border-radius:10px;padding:22px;display:flex;gap:14px;align-items:flex-start}
+.preview-card .pg{font-family:'JetBrains Mono',monospace;font-size:11px;
+  color:#38bdf8;background:rgba(56,189,248,0.1);border-radius:4px;
+  padding:3px 8px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+.preview-card .pg-title{font-size:14px;font-weight:600;color:#e2e8f0;margin-bottom:4px}
+.preview-card .pg-desc{font-size:13px;color:#475569}
 
-/* ── ABOUT / SPLIT ── */
-.about{background:#080d16}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-@media(max-width:700px){.split{grid-template-columns:1fr}}
-.about-text p{color:#94a3b8;font-size:15.5px;margin-bottom:14px;line-height:1.75}
-.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.tag{padding:5px 12px;border-radius:6px;font-family:'JetBrains Mono',monospace;
-  font-size:11px;letter-spacing:0.05em;border:1px solid}
-.tag-blue{color:#38bdf8;border-color:rgba(56,189,248,0.25);background:rgba(56,189,248,0.06)}
-.tag-purple{color:#a78bfa;border-color:rgba(167,139,250,0.25);background:rgba(167,139,250,0.06)}
-.tag-green{color:#34d399;border-color:rgba(52,211,153,0.25);background:rgba(52,211,153,0.06)}
-.tag-orange{color:#fb923c;border-color:rgba(251,146,60,0.25);background:rgba(251,146,60,0.06)}
+/* ── WHAT YOU GET ── */
+.buy-section{padding:80px 24px;background:#080d16}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:40px}
+.feature{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);
+  border-radius:10px;padding:22px;transition:border-color .18s}
+.feature:hover{border-color:rgba(245,158,11,0.3)}
+.feature-icon{font-size:24px;margin-bottom:12px}
+.feature-title{font-size:15px;font-weight:600;color:#e2e8f0;margin-bottom:6px}
+.feature-desc{font-size:13px;color:#475569;line-height:1.65}
 
-/* ── BOOK COVER MOCK ── */
-.book-mock{background:linear-gradient(160deg,#0d1b2e 0%,#0b1320 100%);
-  border:1px solid rgba(56,189,248,0.18);border-radius:12px;
-  padding:32px 28px;box-shadow:0 24px 60px rgba(0,0,0,0.5),
-    inset 0 1px 0 rgba(56,189,248,0.1)}
-.mock-top{display:flex;gap:6px;margin-bottom:20px}
-.mock-dot{width:8px;height:8px;border-radius:50%}
-.mock-title{font-family:'Playfair Display',serif;font-size:20px;
-  font-weight:700;color:#fff;margin-bottom:6px}
-.mock-sub{font-size:12px;color:#38bdf8;font-family:'JetBrains Mono',monospace;margin-bottom:20px}
-.mock-divider{height:1px;background:rgba(56,189,248,0.15);margin:14px 0}
-.mock-pill-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
-.mock-pill{padding:3px 10px;border-radius:4px;font-size:10px;
-  font-family:'JetBrains Mono',monospace;letter-spacing:0.05em}
-.mock-authors{font-size:12px;color:#64748b;font-family:'JetBrains Mono',monospace}
-.mock-pages{font-size:11px;color:#334155;margin-top:6px}
+/* ── PRICING CARD ── */
+.pricing-section{padding:80px 24px}
+.price-card{max-width:480px;margin:40px auto 0;
+  background:linear-gradient(160deg,rgba(245,158,11,0.08),rgba(239,68,68,0.05));
+  border:1px solid rgba(245,158,11,0.25);border-radius:20px;padding:44px;text-align:center}
+.price-badge{display:inline-block;background:rgba(245,158,11,0.15);
+  color:#f59e0b;border-radius:6px;padding:4px 14px;
+  font-family:'JetBrains Mono',monospace;font-size:12px;
+  letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px}
+.price-main{font-family:'Playfair Display',serif;font-size:64px;
+  font-weight:900;color:#fff;line-height:1;margin-bottom:4px}
+.price-sub{font-size:14px;color:#64748b;margin-bottom:28px}
+.price-list{list-style:none;text-align:left;margin-bottom:32px}
+.price-list li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.05);
+  font-size:14px;color:#94a3b8;display:flex;gap:10px;align-items:center}
+.price-list li::before{content:'✓';color:#f59e0b;font-weight:700;flex-shrink:0}
+.btn-buy-big{display:block;padding:18px;border-radius:10px;
+  background:linear-gradient(135deg,#f59e0b,#ef4444);
+  color:#fff;text-decoration:none;font-size:17px;font-weight:700;
+  transition:all .2s;box-shadow:0 4px 28px rgba(245,158,11,0.3)}
+.btn-buy-big:hover{transform:translateY(-2px);box-shadow:0 8px 36px rgba(245,158,11,0.4)}
+.royalty-note{font-size:12px;color:#334155;margin-top:16px;font-family:'JetBrains Mono',monospace}
 
 /* ── TOC ── */
-.toc-section{background:rgba(255,255,255,0.015);border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)}
+.toc-section{background:rgba(255,255,255,0.015);border-top:1px solid rgba(255,255,255,0.05);
+  border-bottom:1px solid rgba(255,255,255,0.05);padding:80px 24px}
 .toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:40px}
 .toc-card{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);
   border-radius:10px;padding:20px 22px;transition:border-color .18s}
@@ -137,33 +137,27 @@ h2{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,40px);
 .toc-items{font-size:13px;color:#475569;line-height:1.8}
 
 /* ── AUTHORS ── */
-.authors-section{background:#080d16}
+.authors-section{padding:80px 24px;background:#080d16}
 .author-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
 @media(max-width:600px){.author-grid{grid-template-columns:1fr}}
-.author-card{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);
-  border-radius:14px;padding:28px}
+.author-card{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:28px}
 .author-avatar{width:52px;height:52px;border-radius:50%;
   background:linear-gradient(135deg,#0ea5e9,#6366f1);
-  display:flex;align-items:center;justify-content:center;
-  font-size:22px;margin-bottom:16px}
-.author-name{font-family:'Playfair Display',serif;font-size:19px;
-  color:#fff;margin-bottom:4px}
-.author-role{font-size:13px;color:#38bdf8;font-family:'JetBrains Mono',monospace;
-  margin-bottom:14px}
+  display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
+.author-name{font-family:'Playfair Display',serif;font-size:19px;color:#fff;margin-bottom:4px}
+.author-role{font-size:13px;color:#38bdf8;font-family:'JetBrains Mono',monospace;margin-bottom:14px}
 .author-bio{font-size:14px;color:#64748b;line-height:1.7}
 
-/* ── CTA BANNER ── */
-.cta-banner{background:linear-gradient(135deg,
-  rgba(14,165,233,0.12) 0%,rgba(99,102,241,0.12) 100%);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:20px;padding:60px 40px;text-align:center;margin-top:40px}
-.cta-banner h3{font-family:'Playfair Display',serif;font-size:32px;
-  color:#fff;margin-bottom:12px}
-.cta-banner p{color:#64748b;font-size:16px;margin-bottom:32px}
+/* ── FINAL CTA ── */
+.final-cta{padding:80px 24px;text-align:center}
+.cta-box{max-width:640px;margin:0 auto;
+  background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(239,68,68,0.08));
+  border:1px solid rgba(245,158,11,0.2);border-radius:20px;padding:56px 40px}
+.cta-box h3{font-family:'Playfair Display',serif;font-size:32px;color:#fff;margin-bottom:12px}
+.cta-box p{color:#64748b;font-size:16px;margin-bottom:32px;line-height:1.6}
 
-/* ── FOOTER ── */
 footer{border-top:1px solid rgba(255,255,255,0.06);
-  padding:36px 40px;display:flex;align-items:center;
+  padding:32px 40px;display:flex;align-items:center;
   justify-content:space-between;flex-wrap:wrap;gap:16px}
 .footer-copy{font-size:13px;color:#334155}
 .footer-links{display:flex;gap:20px}
@@ -173,38 +167,41 @@ footer{border-top:1px solid rgba(255,255,255,0.06);
 </head>
 <body>
 
-<!-- ── NAV ── -->
 <nav>
   <div class="nav-logo">spatialbook.github.io</div>
   <div class="nav-links">
-    <a href="#about">About</a>
+    <a href="#preview">Free Preview</a>
     <a href="#contents">Contents</a>
     <a href="#authors">Authors</a>
-    <a href="book.pdf" download class="nav-cta">Download PDF</a>
+    <a href="preview.pdf" download class="nav-preview">📄 Free 6-Page Preview</a>
+    <a href="https://www.amazon.com" target="_blank" class="nav-cta">🛒 Buy on Amazon</a>
   </div>
 </nav>
 
-<!-- ── HERO ── -->
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-inner">
-    <div class="eyebrow"><span class="eyebrow-dot"></span>Open Access · 200 Pages · Free Download</div>
+    <div class="eyebrow"><span class="eyebrow-dot"></span>New Release · 200 Pages · Python + R + AI</div>
     <h1>Spatial Transcriptomics<br><em>Data Analysis</em></h1>
-    <div class="authors">
+    <div class="authors-line">
       <strong>Dr. Madhu Sudhana Saddala</strong> &amp; <strong>Preeti Sharma</strong>
     </div>
     <p class="hero-desc">
-      A complete guide to analysing Visium, Xenium, MERFISH &amp; CosMx data
-      using Python, R, and AI — from raw reads to publication figures.
+      The complete guide to analysing Visium, Xenium, MERFISH &amp; CosMx data —
+      from raw reads to publication-quality figures, using Python, R, and AI.
     </p>
     <div class="btn-row">
-      <a href="book.pdf" download class="btn-primary">
-        ⬇ Download Free PDF (7 MB)
+      <a href="https://www.amazon.com" target="_blank" class="btn-amazon">
+        🛒 Buy on Amazon — $9.99
       </a>
-      <a href="https://www.amazon.com" class="btn-secondary" target="_blank">
-        🛒 Buy on Amazon
+      <a href="preview.pdf" download class="btn-preview">
+        📄 Free 6-Page Preview
       </a>
+    </div>
+    <div class="preview-note">
+      Preview includes: Cover · Author Bios · Table of Contents · Chapter 1 introduction
+      &nbsp;·&nbsp; <span>Full book on Amazon →</span>
     </div>
     <div class="stats">
       <div class="stat"><div class="stat-n">200</div><div class="stat-l">Pages</div></div>
@@ -216,75 +213,145 @@ footer{border-top:1px solid rgba(255,255,255,0.06);
   </div>
 </div>
 
-<!-- ── ABOUT ── -->
-<section class="about" id="about">
+<!-- FREE PREVIEW SECTION -->
+<section class="preview-section" id="preview">
   <div class="section-inner">
-    <div class="split">
-      <div class="about-text">
-        <div class="section-tag">About the Book</div>
-        <h2>Everything you need to analyse spatial data</h2>
-        <p>From loading SpaceRanger output to training AI foundation models, this book walks through every step of a modern spatial transcriptomics analysis with copy-paste-ready Python and R code.</p>
-        <p>Built on real public datasets — Allen Brain Atlas, Human Breast Cancer Xenium, and DLPFC Visium — every pipeline is tested and reproducible.</p>
-        <p>Covers Visium HD, single-molecule platforms, multi-sample integration, deconvolution, ligand-receptor analysis, and clinical applications in oncology.</p>
-        <div class="tag-row">
-          <span class="tag tag-blue">Python · Scanpy · Squidpy</span>
-          <span class="tag tag-purple">R · Seurat v5 · BayesSpace</span>
-          <span class="tag tag-green">cell2location · RCTD</span>
-          <span class="tag tag-orange">Geneformer · scGPT · AI</span>
-          <span class="tag tag-blue">Visium · Visium HD</span>
-          <span class="tag tag-purple">Xenium · CosMx · MERFISH</span>
-        </div>
+    <div class="section-tag">Free Preview — Pages 1–6</div>
+    <h2>See what's inside before you buy</h2>
+    <p style="color:#64748b;font-size:16px;max-width:560px">
+      Download the first 6 pages free — cover, author bios, full table of contents,
+      and the opening of Chapter 1. The complete 200-page book is on Amazon.
+    </p>
+    <div class="preview-grid">
+      <div class="preview-card">
+        <span class="pg">Page 1</span>
+        <div><div class="pg-title">Cover Page</div><div class="pg-desc">Title, authors, platform logos, book stats</div></div>
       </div>
-      <div class="book-mock">
-        <div class="mock-top">
-          <div class="mock-dot" style="background:#ef4444"></div>
-          <div class="mock-dot" style="background:#f59e0b"></div>
-          <div class="mock-dot" style="background:#22c55e"></div>
-        </div>
-        <div class="mock-title">Spatial Transcriptomics<br>Data Analysis</div>
-        <div class="mock-sub">spatialbook.github.io</div>
-        <div class="mock-pill-row">
-          <span class="mock-pill tag-blue">Python</span>
-          <span class="mock-pill tag-purple">R</span>
-          <span class="mock-pill tag-green">AI</span>
-          <span class="mock-pill tag-orange">Codex</span>
-        </div>
-        <div class="mock-divider"></div>
-        <div style="font-size:12px;color:#475569;line-height:2;font-family:'JetBrains Mono',monospace">
-          ▸ 6 Parts · 28 Chapters<br>
-          ▸ 16 High-quality Figures<br>
-          ▸ 50+ Code Examples<br>
-          ▸ Appendices A – H<br>
-          ▸ Exercises + Solutions
-        </div>
-        <div class="mock-divider"></div>
-        <div class="mock-authors">Dr. Madhu Sudhana Saddala<br>Preeti Sharma</div>
-        <div class="mock-pages">200 pages · Open Access · 2025</div>
+      <div class="preview-card">
+        <span class="pg">Page 2</span>
+        <div><div class="pg-title">Copyright & About the Authors</div><div class="pg-desc">Full author biographies and credentials</div></div>
+      </div>
+      <div class="preview-card">
+        <span class="pg">Page 3</span>
+        <div><div class="pg-title">Foreword</div><div class="pg-desc">Introduction to spatial transcriptomics and how to use this book</div></div>
+      </div>
+      <div class="preview-card">
+        <span class="pg">Pages 4–5</span>
+        <div><div class="pg-title">Table of Contents</div><div class="pg-desc">All 28 chapters across 6 parts with appendices A–H</div></div>
+      </div>
+      <div class="preview-card">
+        <span class="pg">Page 6</span>
+        <div><div class="pg-title">Chapter 1 — Introduction</div><div class="pg-desc">Why spatial transcriptomics, platform comparison, what this book covers</div></div>
+      </div>
+      <div class="preview-card" style="border-color:rgba(245,158,11,0.2);background:rgba(245,158,11,0.03)">
+        <span class="pg" style="color:#f59e0b;background:rgba(245,158,11,0.1)">Pages 7–200</span>
+        <div><div class="pg-title" style="color:#f59e0b">Full book on Amazon →</div><div class="pg-desc">Complete Python + R + AI workflows, 16 figures, exercises, appendices</div></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px">
+      <a href="preview.pdf" download class="btn-preview" style="display:inline-flex">
+        📄 Download Free 6-Page Preview
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="buy-section" id="features">
+  <div class="section-inner">
+    <div class="section-tag">What You Get</div>
+    <h2>Everything in the full book</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">🐍</div>
+        <div class="feature-title">Complete Python Workflows</div>
+        <div class="feature-desc">Scanpy, Squidpy, cell2location, scVI, LIANA — every pipeline copy-paste ready with real public datasets</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Complete R Workflows</div>
+        <div class="feature-desc">Seurat v5, BayesSpace, Giotto, BANKSY, CellChat, NicheNet — full parallel R pipelines for every chapter</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🤖</div>
+        <div class="feature-title">AI & Foundation Models</div>
+        <div class="feature-desc">Geneformer, scGPT, custom Copilot prompts, automated methods text generation</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔬</div>
+        <div class="feature-title">4 Platforms Covered</div>
+        <div class="feature-desc">Visium, Visium HD, Xenium, CosMx, MERFISH, Slide-seq — loading, QC, and analysis for each</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-title">16 Publication Figures</div>
+        <div class="feature-desc">High-quality matplotlib/ggplot2 figures ready to adapt for your own manuscripts</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🏥</div>
+        <div class="feature-title">Clinical Applications</div>
+        <div class="feature-desc">Tumour microenvironment, FFPE compatibility, immunotherapy response prediction, spatial biomarkers</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📐</div>
+        <div class="feature-title">Statistics & Power Analysis</div>
+        <div class="feature-desc">Bayesian inference, negative binomial models, permutation tests, sample size calculation</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📚</div>
+        <div class="feature-title">Appendices A–H</div>
+        <div class="feature-desc">Package lists, public datasets, 27-term glossary, troubleshooting guide, parameter reference tables</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── TOC ── -->
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-inner" style="text-align:center">
+    <div class="section-tag">Pricing</div>
+    <h2>Available on Amazon KDP</h2>
+    <div class="price-card">
+      <div class="price-badge">Kindle eBook</div>
+      <div class="price-main">$9.99</div>
+      <div class="price-sub">Instant download · Read on any device</div>
+      <ul class="price-list">
+        <li>All 200 pages — complete content</li>
+        <li>28 chapters · 16 high-quality figures</li>
+        <li>50+ copy-paste Python &amp; R code examples</li>
+        <li>Exercises with solutions</li>
+        <li>Appendices A–H reference material</li>
+        <li>Free Kindle app for Mac, PC, iOS, Android</li>
+        <li>Lifetime access · Updates included</li>
+      </ul>
+      <a href="https://www.amazon.com" target="_blank" class="btn-buy-big">
+        🛒 Buy Now on Amazon — $9.99
+      </a>
+      <div class="royalty-note">Also available as Paperback · $24.99</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOC -->
 <section class="toc-section" id="contents">
   <div class="section-inner">
     <div class="section-tag">Table of Contents</div>
-    <h2>28 chapters across 6 parts</h2>
+    <h2>28 chapters · 6 parts</h2>
     <div class="toc-grid">
       <div class="toc-card">
         <div class="toc-part">Part I</div>
         <div class="toc-title">Foundations</div>
-        <div class="toc-items">Technology families · Data formats (H5AD, SpatialData) · Environment setup · Reproducibility · Cost &amp; design</div>
+        <div class="toc-items">Technology families · Data formats · Environment setup · Cost &amp; design · GPU acceleration</div>
       </div>
       <div class="toc-card">
         <div class="toc-part">Part II</div>
         <div class="toc-title">Sequencing-Based Platforms</div>
-        <div class="toc-items">SpaceRanger QC · Normalisation · Leiden clustering · SVG detection · Deconvolution · RNA velocity</div>
+        <div class="toc-items">SpaceRanger QC · Normalisation · Clustering · SVG detection · Deconvolution · RNA velocity</div>
       </div>
       <div class="toc-card">
         <div class="toc-part">Part III</div>
         <div class="toc-title">Image-Based Platforms</div>
-        <div class="toc-items">Xenium · CosMx · MERFISH loading · QV filtering · Baysor segmentation · LR analysis</div>
+        <div class="toc-items">Xenium · CosMx · MERFISH · QV filtering · Baysor segmentation · Ligand-receptor analysis</div>
       </div>
       <div class="toc-card">
         <div class="toc-part">Part IV</div>
@@ -294,7 +361,7 @@ footer{border-top:1px solid rgba(255,255,255,0.06);
       <div class="toc-card">
         <div class="toc-part">Part V</div>
         <div class="toc-title">AI &amp; Foundation Models</div>
-        <div class="toc-items">CTF prompting · Geneformer · scGPT · Custom Copilot workflows · AI figure generation</div>
+        <div class="toc-items">CTF prompting · Geneformer · scGPT · Custom Copilot · AI figure generation</div>
       </div>
       <div class="toc-card">
         <div class="toc-part">Part VI</div>
@@ -304,18 +371,18 @@ footer{border-top:1px solid rgba(255,255,255,0.06);
       <div class="toc-card">
         <div class="toc-part">Extended</div>
         <div class="toc-title">Advanced Topics</div>
-        <div class="toc-items">Spatial eQTLs · Developmental gradients · Power analysis · seQTL · Cross-platform benchmarks</div>
+        <div class="toc-items">Spatial eQTLs · Developmental gradients · Power analysis · Benchmarking · Single-molecule</div>
       </div>
       <div class="toc-card">
         <div class="toc-part">Appendices A–H</div>
         <div class="toc-title">Reference Material</div>
-        <div class="toc-items">Package lists · Datasets · Glossary · Troubleshooting · Parameter tables · Databases</div>
+        <div class="toc-items">Package lists · Public datasets · 27-term glossary · Troubleshooting · Parameter tables</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── AUTHORS ── -->
+<!-- AUTHORS -->
 <section class="authors-section" id="authors">
   <div class="section-inner">
     <div class="section-tag">Authors</div>
@@ -325,39 +392,40 @@ footer{border-top:1px solid rgba(255,255,255,0.06);
         <div class="author-avatar">🧬</div>
         <div class="author-name">Dr. Madhu Sudhana Saddala</div>
         <div class="author-role">Computational Biology &amp; Spatial Genomics</div>
-        <div class="author-bio">Expert in computational biology and spatial genomics. Developed and validated the analysis workflows presented in this book across multiple tissue types and disease contexts. GitHub: <strong>madhubioinformatics</strong></div>
+        <div class="author-bio">Expert in computational biology and spatial genomics. Developed and validated the analysis workflows in this book across multiple tissue types and disease contexts. GitHub: <strong style="color:#cbd5e1">madhubioinformatics</strong></div>
       </div>
       <div class="author-card">
         <div class="author-avatar">🔬</div>
         <div class="author-name">Preeti Sharma</div>
         <div class="author-role">Spatial Transcriptomics &amp; Bioinformatics</div>
-        <div class="author-bio">Specialist in spatial transcriptomics and bioinformatics with expertise in image-based platforms including Xenium, CosMx, and MERFISH. Contributed the R workflows and case study analyses.</div>
-      </div>
-    </div>
-
-    <!-- CTA BANNER -->
-    <div class="cta-banner">
-      <h3>Download the complete book — free</h3>
-      <p>All 200 pages, 16 figures, and 50+ code examples. No registration required.</p>
-      <div class="btn-row">
-        <a href="book.pdf" download class="btn-primary">
-          ⬇ Download Free PDF
-        </a>
-        <a href="https://github.com/madhubioinformatics/spatialbook.github.io" class="btn-secondary" target="_blank">
-          ⭐ Star on GitHub
-        </a>
+        <div class="author-bio">Specialist in spatial transcriptomics and bioinformatics with deep expertise in image-based platforms including Xenium, CosMx, and MERFISH. Contributed R workflows and case study analyses throughout the book.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="cta-box">
+    <h3>Ready to start?</h3>
+    <p>Download the free 6-page preview to see the writing style and depth of coverage, then grab the full book on Amazon.</p>
+    <div class="btn-row">
+      <a href="https://www.amazon.com" target="_blank" class="btn-amazon">
+        🛒 Buy Full Book — $9.99
+      </a>
+      <a href="preview.pdf" download class="btn-preview">
+        📄 Free Preview First
+      </a>
+    </div>
+  </div>
+</section>
+
 <footer>
-  <div class="footer-copy">© 2025 Dr. Madhu Sudhana Saddala &amp; Preeti Sharma · Open Access</div>
+  <div class="footer-copy">© 2025 Dr. Madhu Sudhana Saddala &amp; Preeti Sharma</div>
   <div class="footer-links">
-    <a href="book.pdf" download>PDF Download</a>
+    <a href="preview.pdf" download>Free Preview</a>
     <a href="https://github.com/madhubioinformatics" target="_blank">GitHub</a>
-    <a href="https://www.amazon.com" target="_blank">Amazon KDP</a>
+    <a href="https://www.amazon.com" target="_blank">Buy on Amazon</a>
   </div>
 </footer>
 
