@@ -7,10 +7,10 @@
 **Authors:** Dr. Madhu Sudhana Saddala & Preeti Sharma  
 **Website:** [madhubioinformatics.github.io/spatialbook.github.io](https://madhubioinformatics.github.io/spatialbook.github.io/)
 
-[![Buy on Amazon](https://img.shields.io/badge/Buy%20on%20Amazon-$9.99%20Kindle-orange?style=for-the-badge&logo=amazon)](https://www.amazon.com)
+[![Buy on Amazon](https://img.shields.io/badge/Buy%20on%20Amazon-$9.99%20Kindle-orange?style=for-the-badge&logo=amazon)](https://www.amazon.com/dp/B0GX2ZT88D)
 [![Free Preview](https://img.shields.io/badge/Free%20Preview-6%20Pages-blue?style=for-the-badge)](./preview.pdf)
-[![Pages](https://img.shields.io/badge/Pages-200-green?style=for-the-badge)](https://www.amazon.com)
-[![Chapters](https://img.shields.io/badge/Chapters-28-purple?style=for-the-badge)](https://www.amazon.com)
+[![Pages](https://img.shields.io/badge/Pages-200-green?style=for-the-badge)](https://www.amazon.com/dp/B0GX2ZT88D)
+[![Chapters](https://img.shields.io/badge/Chapters-28-purple?style=for-the-badge)](https://www.amazon.com/dp/B0GX2ZT88D)
 
 </div>
 
@@ -51,8 +51,8 @@ Includes: Cover · Author bios · Full table of contents · Chapter 1 introducti
 
 ## Buy the Full Book
 
-🛒 **[Kindle eBook — $9.99](https://www.amazon.com)**  
-📖 **[Paperback — $24.99](https://www.amazon.com)**
+🛒 **[Kindle eBook — $9.99](https://www.amazon.com/dp/B0GX2ZT88D)**  
+📖 **[Paperback — $24.99](https://www.amazon.com/dp/B0GX2ZT88D)**
 
 > Amazon link updated once KDP listing is approved (24–72 hrs)
 
