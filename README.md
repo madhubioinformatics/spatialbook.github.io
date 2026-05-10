@@ -52,7 +52,7 @@ Includes: Cover · Author bios · Full table of contents · Chapter 1 introducti
 ## Buy the Full Book
 
 🛒 **[Kindle eBook — $9.99](https://www.amazon.com/dp/B0GX2ZT88D)**  
-📖 **[Paperback — $24.99](https://www.amazon.com/dp/B0GX2ZT88D)**
+📖 **[Paperback — $39.00](https://www.amazon.com/dp/B0GX2ZT88D)**
 
 > Amazon link updated once KDP listing is approved (24–72 hrs)
 
